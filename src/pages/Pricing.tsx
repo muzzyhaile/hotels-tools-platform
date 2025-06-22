@@ -94,7 +94,7 @@ const Pricing = () => {
                   variant={plan.popular ? "default" : "outline"}
                   asChild
                 >
-                  <Link to="/login">Get Started</Link>
+                  <Link to="/contact">Contact Us</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -103,10 +103,10 @@ const Pricing = () => {
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">
-            Need a custom solution? Have questions about our pricing?
+            All pricing plans require consultation. Contact us to get started with your customized solution.
           </p>
           <Button variant="outline" asChild>
-            <Link to="/contact">Contact Our Team</Link>
+            <Link to="/contact">Schedule a Consultation</Link>
           </Button>
         </div>
       </div>
