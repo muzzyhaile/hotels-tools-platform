@@ -53,17 +53,6 @@ const Hero = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
             </div>
-            
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-lg border animate-scale-in">
-              <div className="text-2xl font-bold text-primary">98%</div>
-              <div className="text-sm text-muted-foreground">Review Response Rate</div>
-            </div>
-            
-            <div className="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-lg border animate-scale-in" style={{ animationDelay: '0.2s' }}>
-              <div className="text-2xl font-bold text-primary">+47%</div>
-              <div className="text-sm text-muted-foreground">Search Visibility</div>
-            </div>
           </div>
         </div>
       </div>
