@@ -93,7 +93,7 @@ const Pricing = () => {
                   variant={plan.popular ? "default" : "outline"}
                   asChild
                 >
-                  <Link to="/contact">Get Started</Link>
+                  <Link to="/login">Get Started</Link>
                 </Button>
               </CardContent>
             </Card>

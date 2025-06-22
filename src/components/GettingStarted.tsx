@@ -1,6 +1,7 @@
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const GettingStarted = () => {
   const steps = [
@@ -57,8 +58,8 @@ const GettingStarted = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
-            Get Your Free Assessment
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4" asChild>
+            <Link to="/contact">Get Your Free Assessment</Link>
           </Button>
           <p className="text-sm text-muted-foreground mt-4">
             Takes 15 minutes • No commitment required

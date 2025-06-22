@@ -46,7 +46,7 @@ const Header = () => {
               <Link to="/contact">Free Assessment</Link>
             </Button>
             <Button className="bg-primary hover:bg-primary/90" asChild>
-              <Link to="/contact">Get Started</Link>
+              <Link to="/login">Get Started</Link>
             </Button>
           </div>
 
@@ -79,7 +79,7 @@ const Header = () => {
                   <Link to="/contact">Free Assessment</Link>
                 </Button>
                 <Button className="w-full bg-primary hover:bg-primary/90" asChild>
-                  <Link to="/contact">Get Started</Link>
+                  <Link to="/login">Get Started</Link>
                 </Button>
               </div>
             </div>

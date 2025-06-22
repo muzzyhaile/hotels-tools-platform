@@ -1,6 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 
 const FinalCTA = () => {
   return (
@@ -17,11 +18,11 @@ const FinalCTA = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
-                Get Your Free Assessment
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4" asChild>
+                <Link to="/contact">Get Your Free Assessment</Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-4">
-                See Pricing
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-4" asChild>
+                <Link to="/pricing">See Pricing</Link>
               </Button>
             </div>
           </CardContent>
