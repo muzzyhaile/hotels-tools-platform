@@ -22,12 +22,6 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        
-        <div className="border-t border-primary/20 mt-6 pt-6 text-center">
-          <p className="text-muted-foreground text-sm">
-            © 2024 Hotels.tools.
-          </p>
-        </div>
       </div>
     </footer>
   );
