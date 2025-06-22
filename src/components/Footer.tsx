@@ -1,5 +1,5 @@
-
 import { Link } from 'react-router-dom';
+import CookieSettings from '@/components/CookieSettings';
 
 const Footer = () => {
   return (
@@ -20,6 +20,7 @@ const Footer = () => {
             <Link to="/site-notice" className="text-muted-foreground hover:text-primary transition-colors">
               Site Notice
             </Link>
+            <CookieSettings />
           </div>
         </div>
       </div>
