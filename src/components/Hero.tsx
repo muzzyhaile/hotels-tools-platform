@@ -48,8 +48,8 @@ const Hero = () => {
           <div className="relative animate-slide-up">
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=600&h=500&fit=crop&crop=center" 
-                alt="Luxury hotel lobby showcasing modern hospitality"
+                src="/hotelstools.webp" 
+                alt="Hotels.tools - AI-powered hotel management platform"
                 className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>

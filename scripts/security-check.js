@@ -3,8 +3,9 @@
 // Security Check Script for Hotels.tools
 // This script verifies that no sensitive API keys are exposed in the frontend build
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { execSync } from 'child_process';
 
 const SENSITIVE_PATTERNS = [
   /sk-[a-zA-Z0-9]{32,}/g,  // OpenAI API keys
@@ -60,7 +61,6 @@ function main() {
   
   if (!fs.existsSync(buildDir)) {
     console.log('📦 Build directory not found. Running build...\n');
-    const { execSync } = require('child_process');
     try {
       execSync('npm run build', { stdio: 'inherit' });
     } catch (error) {

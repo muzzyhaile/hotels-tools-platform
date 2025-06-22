@@ -45,12 +45,8 @@ const Dashboard = () => {
   }
 
   const handleServiceClick = (service: typeof hotelAIServices[0]) => {
-    if (service.status === 'Active') {
-      setSelectedService(service)
-      setIsModalOpen(true)
-    } else {
-      toast.info('This service is coming soon!')
-    }
+    setSelectedService(service)
+    setIsModalOpen(true)
   }
 
   const hotelAIServices = [
@@ -83,7 +79,7 @@ const Dashboard = () => {
       title: 'Marketing Automation',
       description: 'Automated marketing campaigns and targeted guest outreach strategies',
       icon: Megaphone,
-      status: 'Coming Soon',
+      status: 'Active',
       color: 'bg-orange-500'
     },
     {
@@ -91,7 +87,7 @@ const Dashboard = () => {
       title: 'Predictive Analytics',
       description: 'Forecast demand, occupancy rates, and optimize operational planning',
       icon: TrendingUp,
-      status: 'Coming Soon',
+      status: 'Active',
       color: 'bg-indigo-500'
     },
     {
@@ -99,7 +95,7 @@ const Dashboard = () => {
       title: 'Smart Concierge',
       description: '24/7 AI-powered guest assistance and personalized local recommendations',
       icon: Bot,
-      status: 'Coming Soon',
+      status: 'Active',
       color: 'bg-pink-500'
     }
   ]
@@ -143,7 +139,6 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {hotelAIServices.map((service) => {
             const Icon = service.icon
-            const isActive = service.status === 'Active'
             
             return (
               <Card key={service.id} className="hover:shadow-lg transition-all duration-200 cursor-pointer group">
@@ -152,11 +147,8 @@ const Dashboard = () => {
                     <div className={`p-2.5 rounded-lg ${service.color} group-hover:scale-110 transition-transform`}>
                       <Icon className="h-6 w-6 text-white" />
                     </div>
-                    <Badge 
-                      variant={isActive ? "default" : "secondary"} 
-                      className="text-xs"
-                    >
-                      {service.status}
+                    <Badge variant="default" className="text-xs">
+                      Active
                     </Badge>
                   </div>
                   <CardTitle className="text-xl">{service.title}</CardTitle>
@@ -167,18 +159,10 @@ const Dashboard = () => {
                 <CardContent>
                   <Button 
                     className="w-full" 
-                    disabled={!isActive}
                     onClick={() => handleServiceClick(service)}
-                    variant={isActive ? "default" : "secondary"}
                   >
-                    {isActive ? (
-                      <>
-                        <MessageCircle className="h-4 w-4 mr-2" />
-                        Start Chat
-                      </>
-                    ) : (
-                      'Coming Soon'
-                    )}
+                    <MessageCircle className="h-4 w-4 mr-2" />
+                    Start Chat
                   </Button>
                 </CardContent>
               </Card>
@@ -193,18 +177,18 @@ const Dashboard = () => {
               <CardTitle className="text-lg">Active Services</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-green-600">3</div>
+              <div className="text-3xl font-bold text-green-600">6</div>
               <p className="text-sm text-muted-foreground">AI services ready to use</p>
             </CardContent>
           </Card>
           
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">Coming Soon</CardTitle>
+              <CardTitle className="text-lg">Chat Sessions</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-blue-600">3</div>
-              <p className="text-sm text-muted-foreground">Additional services in development</p>
+              <div className="text-3xl font-bold text-blue-600">∞</div>
+              <p className="text-sm text-muted-foreground">Unlimited conversations available</p>
             </CardContent>
           </Card>
           
@@ -214,7 +198,7 @@ const Dashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground mb-2">
-                Click on any active service to start getting AI-powered insights for your hotel operations.
+                Click on any service to start getting AI-powered insights for your hotel operations.
               </p>
               <Button variant="outline" size="sm" className="w-full">
                 View Help Guide
