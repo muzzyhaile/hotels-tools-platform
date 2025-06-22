@@ -26,7 +26,7 @@ const About = () => {
               </div>
               <div>
                 <img 
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&crop=center" 
+                  src="public\hotelstools.webp" 
                   alt="Hotel team collaboration"
                   className="rounded-lg shadow-lg w-full"
                 />
