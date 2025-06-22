@@ -52,9 +52,10 @@ const Pricing = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      <main className="flex-1">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Simple, Transparent Pricing
@@ -109,6 +110,7 @@ const Pricing = () => {
           </Button>
         </div>
       </div>
+      </main>
       <Footer />
     </div>
   );
