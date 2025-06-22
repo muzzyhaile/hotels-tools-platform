@@ -14,50 +14,50 @@ const SiteNotice = () => {
           
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
             <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">Information in accordance with § 5 TMG</h2>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">Information pursuant to Sect. 5 German Telemedia Act (TMG)</h2>
               <p>
-                Hotels.tools<br />
-                [Company Address]<br />
-                [City, Postal Code]<br />
-                [Country]
+                Mussie Haile<br />
+                Guiding-Ventures<br />
+                Lohmühlenstraße 65<br />
+                12435 Berlin
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">Contact Information</h2>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">Contact</h2>
               <p>
-                Telephone: [Phone Number]<br />
-                E-Mail: [Email Address]<br />
-                Internet address: https://hotels.tools
+                Phone: +4917687053245<br />
+                E-mail: admin@guidingventures.com
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">Responsible for Content</h2>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">VAT ID</h2>
               <p>
-                [Name]<br />
-                [Address]<br />
-                [City, Postal Code]<br />
-                [Country]
+                Sales tax identification number according to Sect. 27 a of the Sales Tax Law:<br />
+                DE348867516
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-foreground mb-4">Disclaimer</h2>
-              
-              <h3 className="text-xl font-medium text-foreground mb-2">Liability for Contents</h3>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">Person responsible for editorial</h2>
               <p>
-                As service providers, we are liable for own contents of these websites according to Sec. 7, para.1 German Teleservices Act (TMG). However, according to Sec. 8 to 10 German Teleservices Act (TMG), service providers are not under obligation to permanently monitor submitted or stored information or to search for evidences that indicate illegal activities.
+                Mussie Haile
               </p>
-              
-              <h3 className="text-xl font-medium text-foreground mb-2">Liability for Links</h3>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">EU dispute resolution</h2>
               <p>
-                Our offer includes links to external third party websites. We have no influence on the contents of those websites, therefore we cannot guarantee for those contents. Providers or administrators of linked websites are always responsible for their own contents.
+                The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/" className="text-primary hover:underline">https://ec.europa.eu/consumers/odr/</a>.<br />
+                Our e-mail address can be found above in the site notice.
               </p>
-              
-              <h3 className="text-xl font-medium text-foreground mb-2">Copyright</h3>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-foreground mb-4">Dispute resolution proceedings in front of a consumer arbitration board</h2>
               <p>
-                Contents and compilations published on these websites by the providers are subject to German copyright laws. Reproduction, editing, distribution as well as the use of any kind outside the scope of the copyright law require a written permission of the author or originator.
+                We are not willing or obliged to participate in dispute resolution proceedings in front of a consumer arbitration board.
               </p>
             </section>
           </div>
