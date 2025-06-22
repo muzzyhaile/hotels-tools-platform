@@ -1,11 +1,12 @@
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   return (
@@ -56,6 +57,21 @@ const Contact = () => {
               <div>
                 <Label htmlFor="message">How can we help?</Label>
                 <Textarea id="message" placeholder="Tell us about your hotel and what you'd like to improve" className="min-h-[120px]" />
+              </div>
+              
+              <div className="flex items-start space-x-3">
+                <Checkbox id="privacy" className="mt-1" />
+                <Label htmlFor="privacy" className="text-sm leading-relaxed">
+                  I agree to the processing of my personal data according to the{' '}
+                  <Link to="/privacy-policy" className="text-primary hover:underline">
+                    Privacy Policy
+                  </Link>{' '}
+                  and{' '}
+                  <Link to="/site-notice" className="text-primary hover:underline">
+                    Site Notice
+                  </Link>
+                  .
+                </Label>
               </div>
               
               <Button size="lg" className="w-full">
