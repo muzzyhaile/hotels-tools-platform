@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -126,9 +126,9 @@ const AIServiceModal: React.FC<AIServiceModalProps> = ({ isOpen, onClose, servic
               </div>
               {service.title} AI Assistant
             </DialogTitle>
-            <p className="text-sm text-muted-foreground mt-1">
+            <DialogDescription className="text-sm text-muted-foreground mt-1">
               {service.description}
-            </p>
+            </DialogDescription>
           </div>
           <div className="flex gap-2">
             <Button variant="outline" size="sm" onClick={clearChat}>

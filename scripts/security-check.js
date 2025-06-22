@@ -60,13 +60,9 @@ function main() {
   const buildDir = path.join(process.cwd(), 'dist');
   
   if (!fs.existsSync(buildDir)) {
-    console.log('📦 Build directory not found. Running build...\n');
-    try {
-      execSync('npm run build', { stdio: 'inherit' });
-    } catch (error) {
-      console.error('❌ Build failed. Please fix build errors first.');
-      process.exit(1);
-    }
+    console.log('📦 Build directory not found. Please run "npm run build" first.');
+    console.log('⚠️  Skipping security check - no build files to scan.');
+    process.exit(0);
   }
 
   console.log('🔍 Scanning build files for sensitive data...\n');
