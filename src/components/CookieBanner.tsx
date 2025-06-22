@@ -184,60 +184,60 @@ const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) => {
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-background/95 backdrop-blur-sm border-t shadow-lg">
+      <div className="fixed bottom-0 left-0 right-0 z-50 p-3 sm:p-4 bg-background/95 backdrop-blur-sm border-t shadow-lg">
         <Card className="max-w-4xl mx-auto">
-          <CardContent className="p-6">
-            <div className="flex items-start gap-4">
-              <Cookie className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold mb-2">We value your privacy</h3>
-                <p className="text-sm text-muted-foreground mb-4">
+          <CardContent className="p-4 sm:p-6">
+            <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
+              <Cookie className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0 mt-1" />
+              <div className="flex-1 min-w-0">
+                <h3 className="text-base sm:text-lg font-semibold mb-2">We value your privacy</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-4 leading-relaxed">
                   We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. 
                   By clicking "Accept All", you consent to our use of cookies. You can customize your preferences or learn more 
                   in our <a href="/privacy-policy" className="text-primary hover:underline">Privacy Policy</a>.
                 </p>
-                <div className="flex flex-wrap gap-3">
-                  <Button onClick={handleAcceptAll} className="bg-primary hover:bg-primary/90">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                  <Button onClick={handleAcceptAll} className="bg-primary hover:bg-primary/90 w-full sm:w-auto text-sm">
                     Accept All
                   </Button>
-                  <Button onClick={handleAcceptNecessary} variant="outline">
+                  <Button onClick={handleAcceptNecessary} variant="outline" className="w-full sm:w-auto text-sm">
                     Accept Necessary Only
                   </Button>
                   <Dialog open={showSettings} onOpenChange={setShowSettings}>
                     <DialogTrigger asChild>
-                      <Button variant="ghost" size="sm">
+                      <Button variant="ghost" size="sm" className="w-full sm:w-auto text-xs sm:text-sm">
                         Customize Settings
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                    <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto mx-3 sm:mx-0">
                       <DialogHeader>
-                        <DialogTitle className="flex items-center gap-2">
-                          <Shield className="h-5 w-5" />
+                        <DialogTitle className="flex items-center gap-2 text-base sm:text-lg">
+                          <Shield className="h-4 w-4 sm:h-5 sm:w-5" />
                           Cookie Preferences
                         </DialogTitle>
                       </DialogHeader>
-                      <div className="space-y-6">
-                        <div className="space-y-4">
-                          <div className="flex items-center justify-between p-4 border rounded-lg">
+                      <div className="space-y-4 sm:space-y-6">
+                        <div className="space-y-3 sm:space-y-4">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 sm:p-4 border rounded-lg gap-3 sm:gap-4">
                             <div className="flex-1">
-                              <h4 className="font-medium flex items-center gap-2">
-                                <Shield className="h-4 w-4" />
+                              <h4 className="font-medium flex items-center gap-2 text-sm sm:text-base">
+                                <Shield className="h-3 w-3 sm:h-4 sm:w-4" />
                                 Necessary Cookies
                               </h4>
-                              <p className="text-sm text-muted-foreground mt-1">
+                              <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                                 These cookies are essential for the website to function properly. They cannot be disabled.
                               </p>
                             </div>
                             <Switch checked={true} disabled />
                           </div>
                           
-                          <div className="flex items-center justify-between p-4 border rounded-lg">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 sm:p-4 border rounded-lg gap-3 sm:gap-4">
                             <div className="flex-1">
-                              <h4 className="font-medium flex items-center gap-2">
-                                <BarChart3 className="h-4 w-4" />
+                              <h4 className="font-medium flex items-center gap-2 text-sm sm:text-base">
+                                <BarChart3 className="h-3 w-3 sm:h-4 sm:w-4" />
                                 Analytics Cookies
                               </h4>
-                              <p className="text-sm text-muted-foreground mt-1">
+                              <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                                 These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.
                               </p>
                             </div>
@@ -248,11 +248,11 @@ const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) => {
                           </div>
                         </div>
                         
-                        <div className="flex justify-end gap-3">
-                          <Button variant="outline" onClick={() => setShowSettings(false)}>
+                        <div className="flex flex-col sm:flex-row justify-end gap-2 sm:gap-3">
+                          <Button variant="outline" onClick={() => setShowSettings(false)} className="w-full sm:w-auto text-sm">
                             Cancel
                           </Button>
-                          <Button onClick={handleSaveSettings}>
+                          <Button onClick={handleSaveSettings} className="w-full sm:w-auto text-sm">
                             Save Preferences
                           </Button>
                         </div>
@@ -265,7 +265,7 @@ const CookieBanner: React.FC<CookieBannerProps> = ({ onConsentChange }) => {
                 variant="ghost" 
                 size="sm" 
                 onClick={handleAcceptNecessary}
-                className="flex-shrink-0"
+                className="flex-shrink-0 self-start sm:self-center"
               >
                 <X className="h-4 w-4" />
               </Button>

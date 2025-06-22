@@ -14,12 +14,12 @@ const Hero = () => {
               🚀 Introducing Hotels.tools - New AI Solution
             </Badge>
             
-            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               Transform Your Hotel's 
               <span className="text-gradient"> Digital Presence</span> with AI
             </h1>
             
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
               AI-powered reputation management and guest engagement platform designed specifically for independent hotels and boutique properties. Boost your search visibility, automate review responses, and increase revenue.
             </p>
 
@@ -50,7 +50,7 @@ const Hero = () => {
               <img 
                 src="/hotelstools.webp" 
                 alt="Hotels.tools - AI-powered hotel management platform"
-                className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
+                className="rounded-2xl shadow-2xl w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
             </div>
