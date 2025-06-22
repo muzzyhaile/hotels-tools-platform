@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -22,9 +21,6 @@ const About = () => {
               <h2 className="text-3xl font-bold text-foreground mb-6">Our Story</h2>
               <p className="text-lg text-muted-foreground mb-4">
                 Hotels.tools was born from the frustration of managing digital marketing for independent hotels. We saw how chain hotels dominated online visibility while boutique properties struggled with limited resources and technical expertise.
-              </p>
-              <p className="text-lg text-muted-foreground">
-                Our team combines decades of hospitality experience with cutting-edge AI technology to level the playing field for independent hoteliers.
               </p>
             </div>
             <div>
