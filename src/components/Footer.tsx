@@ -1,4 +1,6 @@
 
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <footer className="bg-foreground text-background py-8">
@@ -6,6 +8,15 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <h3 className="text-xl font-bold text-primary">Hotels.tools</h3>
+          </div>
+          
+          <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
+            <Link to="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-service" className="text-muted-foreground hover:text-primary transition-colors">
+              Terms of Service
+            </Link>
           </div>
         </div>
         
