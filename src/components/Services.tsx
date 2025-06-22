@@ -5,12 +5,13 @@ const Services = () => {
   const services = [
     {
       title: "AI Reputation Management",
-      description: "Let AI handle your online reviews automatically",
+      description: "Let AI handle your online reviews",
       features: [
-        "Automatic review responses",
+        "AI review responses",
         "Manages Google, TripAdvisor, Booking.com",
         "Matches your hotel's voice",
-        "Simple dashboard to track everything"
+        "Simple dashboard to track everything",
+        "AI-powered upsell opportunities"
       ]
     },
     {
