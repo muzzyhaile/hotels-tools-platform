@@ -65,10 +65,6 @@ const Contact = () => {
                   I agree to the processing of my personal data according to the{' '}
                   <Link to="/privacy-policy" className="text-primary hover:underline">
                     Privacy Policy
-                  </Link>{' '}
-                  and{' '}
-                  <Link to="/site-notice" className="text-primary hover:underline">
-                    Site Notice
                   </Link>
                   .
                 </Label>
