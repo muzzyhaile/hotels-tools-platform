@@ -4,22 +4,25 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { useAuth } from '@/contexts/AuthContext'
 import { 
-  Brain, 
-  MessageSquare, 
-  FileText, 
-  BarChart3, 
-  Users, 
-  Star,
+  DollarSign, 
+  Package, 
+  Star, 
+  Megaphone, 
+  TrendingUp, 
+  Bot,
   LogOut,
-  Settings
+  Settings,
+  Loader2
 } from 'lucide-react'
 import { toast } from 'sonner'
 import { useNavigate } from 'react-router-dom'
+import { aiServices, AI_SERVICE_METADATA, AI_SERVICES } from '@/services/aiServices'
 
 const Dashboard = () => {
   const { user, signOut } = useAuth()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
+  const [serviceLoading, setServiceLoading] = useState<string | null>(null)
 
   const handleSignOut = async () => {
     setLoading(true)
@@ -34,54 +37,89 @@ const Dashboard = () => {
     }
   }
 
-  const aiServices = [
+  const handleServiceClick = async (serviceId: string) => {
+    setServiceLoading(serviceId)
+    try {
+      let result
+      const testMessage = "Hello! I need help with my hotel operations. Can you provide some general advice?"
+      
+      switch (serviceId) {
+        case AI_SERVICES.REVENUE_OPTIMIZATION:
+          result = await aiServices.revenueOptimization(testMessage)
+          break
+        case AI_SERVICES.INVENTORY_MANAGEMENT:
+          result = await aiServices.inventoryManagement(testMessage)
+          break
+        case AI_SERVICES.GUEST_EXPERIENCE:
+          result = await aiServices.guestExperience(testMessage)
+          break
+        default:
+          toast.info('This service is coming soon!')
+          return
+      }
+
+      if (result.success) {
+        toast.success(`${result.service} responded successfully!`)
+        // Here you could open a chat interface or modal with the response
+        console.log('AI Response:', result.response)
+      } else {
+        toast.error(result.error || 'Service temporarily unavailable')
+      }
+    } catch (error) {
+      toast.error('Failed to connect to AI service')
+    } finally {
+      setServiceLoading(null)
+    }
+  }
+
+  const hotelAIServices = [
     {
-      id: 'chatbot',
-      title: 'AI Chatbot Assistant',
-      description: 'Intelligent customer service bot for your hotel website',
-      icon: MessageSquare,
-      status: 'Coming Soon',
-      color: 'bg-blue-500'
-    },
-    {
-      id: 'content',
-      title: 'Content Generator',
-      description: 'Generate compelling hotel descriptions and marketing content',
-      icon: FileText,
-      status: 'Coming Soon',
+      id: AI_SERVICES.REVENUE_OPTIMIZATION,
+      title: 'Revenue Optimization',
+      description: 'AI-powered pricing strategies and revenue management',
+      icon: DollarSign,
+      status: 'Active',
       color: 'bg-green-500'
     },
     {
-      id: 'analytics',
-      title: 'Smart Analytics',
-      description: 'AI-powered insights into your hotel performance and guest behavior',
-      icon: BarChart3,
-      status: 'Coming Soon',
+      id: AI_SERVICES.INVENTORY_MANAGEMENT,
+      title: 'Inventory Management',
+      description: 'Smart inventory tracking and supply chain optimization',
+      icon: Package,
+      status: 'Active',
+      color: 'bg-blue-500'
+    },
+    {
+      id: AI_SERVICES.GUEST_EXPERIENCE,
+      title: 'Guest Experience',
+      description: 'Enhance guest satisfaction with AI insights',
+      icon: Star,
+      status: 'Active',
       color: 'bg-purple-500'
     },
     {
-      id: 'guest-insights',
-      title: 'Guest Insights',
-      description: 'Understand your guests better with AI-driven analysis',
-      icon: Users,
+      id: AI_SERVICES.MARKETING_AUTOMATION,
+      title: 'Marketing Automation',
+      description: 'Automated marketing campaigns and guest outreach',
+      icon: Megaphone,
       status: 'Coming Soon',
       color: 'bg-orange-500'
     },
     {
-      id: 'review-analyzer',
-      title: 'Review Analyzer',
-      description: 'Analyze and respond to guest reviews with AI assistance',
-      icon: Star,
-      status: 'Coming Soon',
-      color: 'bg-red-500'
-    },
-    {
-      id: 'ai-concierge',
-      title: 'AI Concierge',
-      description: 'Virtual concierge service for guest recommendations',
-      icon: Brain,
+      id: AI_SERVICES.PREDICTIVE_ANALYTICS,
+      title: 'Predictive Analytics',
+      description: 'Forecast demand and optimize operations',
+      icon: TrendingUp,
       status: 'Coming Soon',
       color: 'bg-indigo-500'
+    },
+    {
+      id: AI_SERVICES.SMART_CONCIERGE,
+      title: 'Smart Concierge',
+      description: '24/7 AI-powered guest assistance and recommendations',
+      icon: Bot,
+      status: 'Coming Soon',
+      color: 'bg-pink-500'
     }
   ]
 
@@ -114,16 +152,19 @@ const Dashboard = () => {
       {/* Main Content */}
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold text-foreground mb-2">Dashboard</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-2">AI Dashboard</h2>
           <p className="text-lg text-muted-foreground">
-            Access powerful AI tools to enhance your hotel's digital presence
+            Powerful AI services to transform your hotel operations
           </p>
         </div>
 
         {/* AI Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {aiServices.map((service) => {
+          {hotelAIServices.map((service) => {
             const Icon = service.icon
+            const isLoading = serviceLoading === service.id
+            const isActive = service.status === 'Active'
+            
             return (
               <Card key={service.id} className="hover:shadow-lg transition-shadow duration-200">
                 <CardHeader>
@@ -131,7 +172,10 @@ const Dashboard = () => {
                     <div className={`p-2.5 rounded-lg ${service.color}`}>
                       <Icon className="h-6 w-6 text-white" />
                     </div>
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge 
+                      variant={isActive ? "default" : "secondary"} 
+                      className="text-xs"
+                    >
                       {service.status}
                     </Badge>
                   </div>
@@ -143,14 +187,16 @@ const Dashboard = () => {
                 <CardContent>
                   <Button 
                     className="w-full" 
-                    disabled={service.status === 'Coming Soon'}
-                    onClick={() => {
-                      if (service.status === 'Coming Soon') {
-                        toast.info('This feature is coming soon!')
-                      }
-                    }}
+                    disabled={!isActive || isLoading}
+                    onClick={() => handleServiceClick(service.id)}
                   >
-                    {service.status === 'Coming Soon' ? 'Coming Soon' : 'Launch Tool'}
+                    {isLoading && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
+                    {isLoading 
+                      ? 'Connecting...' 
+                      : isActive 
+                        ? 'Launch Service' 
+                        : 'Coming Soon'
+                    }
                   </Button>
                 </CardContent>
               </Card>
@@ -158,38 +204,64 @@ const Dashboard = () => {
           })}
         </div>
 
-        {/* Getting Started Section */}
+        {/* Service Status */}
         <Card className="mt-12">
+          <CardHeader>
+            <CardTitle className="text-2xl">Service Status</CardTitle>
+            <CardDescription>
+              Current status of your AI services and integrations
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+              <div className="p-4 rounded-lg bg-green-50 border border-green-200">
+                <div className="text-2xl font-bold text-green-600">3</div>
+                <div className="text-sm text-green-700">Active Services</div>
+              </div>
+              <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
+                <div className="text-2xl font-bold text-blue-600">3</div>
+                <div className="text-sm text-blue-700">Coming Soon</div>
+              </div>
+              <div className="p-4 rounded-lg bg-purple-50 border border-purple-200">
+                <div className="text-2xl font-bold text-purple-600">OpenAI</div>
+                <div className="text-sm text-purple-700">AI Provider</div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Getting Started Section */}
+        <Card className="mt-8">
           <CardHeader>
             <CardTitle className="text-2xl">Getting Started</CardTitle>
             <CardDescription>
-              Welcome to Hotels.tools! Here's how to make the most of our AI-powered platform:
+              Start using AI to enhance your hotel operations:
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold mb-2">1. Explore AI Services</h4>
+                <h4 className="font-semibold mb-2">1. Try Active Services</h4>
                 <p className="text-sm text-muted-foreground">
-                  Browse through our collection of AI tools designed specifically for hotels.
+                  Click "Launch Service" on Revenue Optimization, Inventory Management, or Guest Experience to test the AI.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold mb-2">2. Customize Your Setup</h4>
+                <h4 className="font-semibold mb-2">2. Ask Specific Questions</h4>
                 <p className="text-sm text-muted-foreground">
-                  Tailor each AI service to match your hotel's unique brand and requirements.
+                  Each AI service is specialized for different hotel operations - ask relevant questions for best results.
                 </p>
               </div>
               <div>
                 <h4 className="font-semibold mb-2">3. Monitor Performance</h4>
                 <p className="text-sm text-muted-foreground">
-                  Track the impact of AI tools on your guest satisfaction and operational efficiency.
+                  Track how AI recommendations impact your hotel's efficiency and guest satisfaction.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold mb-2">4. Get Support</h4>
+                <h4 className="font-semibold mb-2">4. More Services Coming</h4>
                 <p className="text-sm text-muted-foreground">
-                  Our team is here to help you maximize the value of our AI solutions.
+                  Marketing Automation, Predictive Analytics, and Smart Concierge services launching soon.
                 </p>
               </div>
             </div>
