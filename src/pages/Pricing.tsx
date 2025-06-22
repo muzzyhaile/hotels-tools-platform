@@ -44,8 +44,6 @@ const Pricing = () => {
         "Unlimited AI review responses",
         "Full platform access",
         "Custom integrations",
-        "Dedicated account manager",
-        "24/7 priority support",
         "Custom reporting"
       ]
     }
