@@ -7,18 +7,6 @@ const Footer = () => {
           <div className="mb-4 md:mb-0">
             <h3 className="text-xl font-bold text-primary">Hotels.tools</h3>
           </div>
-          
-          <div className="flex space-x-8">
-            <a href="#privacy" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#terms" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Terms of Service
-            </a>
-            <a href="#contact" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-              Contact
-            </a>
-          </div>
         </div>
         
         <div className="border-t border-primary/20 mt-6 pt-6 text-center">
