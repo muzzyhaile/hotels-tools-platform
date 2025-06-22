@@ -6,26 +6,20 @@ const GettingStarted = () => {
   const steps = [
     {
       number: "01",
-      title: "Free Hotel Assessment",
-      description: "We analyze your current digital presence, review performance, and search visibility to identify opportunities.",
+      title: "Quick Assessment",
+      description: "We take a look at your hotel's online presence and show you what could be better.",
       duration: "15 minutes"
     },
     {
       number: "02", 
-      title: "Custom Strategy Session",
-      description: "Personal consultation to design your AI-powered marketing strategy based on your property's unique needs.",
-      duration: "45 minutes"
-    },
-    {
-      number: "03",
-      title: "Implementation & Onboarding", 
-      description: "Quick setup of your AI tools with training for your team and integration with your existing systems.",
+      title: "Simple Setup",
+      description: "We set everything up for you. No complicated tech stuff.",
       duration: "1-2 days"
     },
     {
-      number: "04",
-      title: "Ongoing Optimization",
-      description: "Continuous monitoring, optimization, and support to ensure maximum results for your property.",
+      number: "03",
+      title: "Start Seeing Results",
+      description: "AI starts working for you automatically. You focus on your guests.",
       duration: "Ongoing"
     }
   ];
@@ -35,14 +29,14 @@ const GettingStarted = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6">
-            Getting Started is Simple
+            How It Works
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From assessment to full implementation, we make the process seamless so you can focus on what you do best - providing exceptional hospitality.
+            Three simple steps to get your hotel competing online.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <Card key={index} className="relative card-hover border-2 hover:border-primary/20">
               <CardContent className="p-8 text-center">
@@ -64,10 +58,10 @@ const GettingStarted = () => {
 
         <div className="text-center mt-12">
           <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
-            Start Your Free Assessment
+            Get Your Free Assessment
           </Button>
           <p className="text-sm text-muted-foreground mt-4">
-            No commitment required • Takes less than 15 minutes • Immediate insights
+            Takes 15 minutes • No commitment required
           </p>
         </div>
       </div>

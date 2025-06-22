@@ -1,50 +1,37 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 
 const Services = () => {
   const services = [
     {
       title: "AI Reputation Management",
-      description: "Automated review response generation and multi-platform management",
+      description: "Let AI handle your online reviews automatically",
       features: [
-        "Automated response generation for all reviews",
-        "Multi-platform management (Google, TripAdvisor, Booking.com)",
-        "Brand voice customization and training",
-        "Performance analytics dashboard",
-        "Sentiment analysis and trends",
-        "Crisis response automation"
-      ],
-      badge: "Most Popular",
-      badgeColor: "bg-primary text-primary-foreground"
+        "Automatic review responses",
+        "Manages Google, TripAdvisor, Booking.com",
+        "Matches your hotel's voice",
+        "Simple dashboard to track everything"
+      ]
     },
     {
-      title: "Search Visibility Optimization",
-      description: "Local SEO enhancement and Google Business Profile optimization",
+      title: "Search Visibility",
+      description: "Help guests find you online",
       features: [
-        "Local SEO strategy and implementation",
-        "Google Business Profile optimization",
-        "Keyword research for hospitality",
-        "Professional photography guidance",
-        "Local citation building",
-        "Competitor analysis and monitoring"
-      ],
-      badge: "High Impact",
-      badgeColor: "bg-warm-500 text-white"
+        "Better Google search rankings",
+        "Optimized business profile",
+        "Local search improvements",
+        "Photography tips"
+      ]
     },
     {
-      title: "Guest Engagement & Revenue",
-      description: "Automated upsell campaigns and personalized guest communications",
+      title: "Guest Communication",
+      description: "Automated emails that increase revenue",
       features: [
-        "Automated upsell email campaigns",
-        "Personalized guest communication sequences",
-        "Pre-arrival and post-stay engagement",
-        "Revenue opportunity identification",
-        "Guest feedback collection automation",
-        "Loyalty program management"
-      ],
-      badge: "Revenue Boost",
-      badgeColor: "bg-green-600 text-white"
+        "Pre-arrival welcome emails",
+        "Upsell opportunities",
+        "Post-stay follow-ups",
+        "Personalized guest messages"
+      ]
     }
   ];
 
@@ -53,23 +40,17 @@ const Services = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl font-bold text-foreground mb-6">
-            Three Core Services That Transform Hotels
+            Simple Tools That Work
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our comprehensive AI platform covers every aspect of digital marketing and guest engagement, 
-            specifically designed for the unique needs of independent hotels and boutique properties.
+            Everything your hotel needs to compete online, made simple.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="relative card-hover border-2 hover:border-primary/20">
+            <Card key={index} className="card-hover border-2 hover:border-primary/20">
               <CardHeader className="pb-4">
-                <div className="flex items-center justify-between mb-4">
-                  <Badge className={service.badgeColor}>
-                    {service.badge}
-                  </Badge>
-                </div>
                 <CardTitle className="text-2xl font-bold text-foreground mb-2">
                   {service.title}
                 </CardTitle>
