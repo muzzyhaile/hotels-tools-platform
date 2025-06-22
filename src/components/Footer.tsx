@@ -11,7 +11,7 @@ const Footer = () => {
         
         <div className="border-t border-primary/20 mt-6 pt-6 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 Hotels.tools. All rights reserved.
+            © 2024 Hotels.tools.
           </p>
         </div>
       </div>
